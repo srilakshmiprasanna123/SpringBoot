@@ -21,4 +21,9 @@ import org.springframework.web.bind.annotation.*;
         return "Hello good morning"+name;
     }
 
+    @GetMapping("/param/{name}")
+    public  String sayHelloParam(@PathVariable String name){
+        return "Hello"+ name+ "!";
+    }
+
 }
