@@ -31,4 +31,9 @@ public class RestController {
     public String sayHello(@RequestBody User user){
         return "Hello"+user.getFullName()+" "+user.getUsername();
     }
+
+    @PutMapping("/put/{firstName}")
+    public String sayHello(@PathVariable String firstName, @RequestParam(value = "lastName") String lastName){
+        return "Hello"+firstName+" "+lastName;
+    }
 }
