@@ -1,15 +1,16 @@
 package com.example.springboot.controller;
 
-
+import org.apache.catalina.User;
 import org.springframework.web.bind.annotation.*;
-@org.springframework.web.bind.annotation.RestController
 
 
-    public class RestController {
-        @GetMapping("/hello")
-        public String sayHello() {
-            return "Hello World";
-        }
+@RequestMapping("/hi")
+public class RestController {
+
+    @GetMapping("/hello")
+    public String hello(){
+        return "Hello from Bridgelabz";
+    }
 
     @GetMapping("/web")
     public String index(){
@@ -26,4 +27,8 @@ import org.springframework.web.bind.annotation.*;
         return "Hello"+ name+ "!";
     }
 
+    @PostMapping("/post")
+    public String sayHello(@RequestBody User user){
+        return "Hello"+user.getFullName()+" "+user.getUsername();
+    }
 }
